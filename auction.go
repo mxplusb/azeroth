@@ -1,4 +1,4 @@
-package tomes
+package azeroth
 
 // AUCTION_ENDPOINT is the base Auction House endpoint. When calling, it requires the realm slug.
 const (
@@ -13,7 +13,7 @@ type AuctionAPI struct {
 }
 
 type AuctionFileEndpoint struct {
-	URL          string `json:"url"`
+	URL string `json:"url"`
 
 	// LastModified contains the UNIX time signature of when the last modification time of the Auction House data
 	// for the specific realm request.
@@ -22,7 +22,7 @@ type AuctionFileEndpoint struct {
 
 type AuctionFile struct {
 	Realms   []AuctionRealm `json:"realms"`
-	Auctions []Auction `json:"auctions"`
+	Auctions []Auction      `json:"auctions"`
 }
 
 type AuctionRealm struct {
@@ -32,28 +32,28 @@ type AuctionRealm struct {
 
 // Auction reflects the actual structure of each individual auction within a realm.
 type Auction struct {
-	Auc          int `json:"auc"`
+	Auc int `json:"auc"`
 
 	// Item is the corresponding item ID from the Item API.
-	Item         int `json:"item"`
+	Item int `json:"item"`
 
 	// Owner may contain certain special characters.
-	Owner        string `json:"owner"`
-	OwnerRealm   string `json:"ownerRealm"`
-	Bid          int `json:"bid"`
-	Buyout       int `json:"buyout"`
-	Quantity     int `json:"quantity"`
+	Owner      string `json:"owner"`
+	OwnerRealm string `json:"ownerRealm"`
+	Bid        int    `json:"bid"`
+	Buyout     int    `json:"buyout"`
+	Quantity   int    `json:"quantity"`
 
 	// TimeLeft will be either SHORT, MEDIUM, LONG, or VERY_LONG
-	TimeLeft     string `json:"timeLeft"`
-	Rand         int `json:"rand"`
-	Seed         int `json:"seed"`
-	Context      int `json:"context"`
+	TimeLeft     string            `json:"timeLeft"`
+	Rand         int               `json:"rand"`
+	Seed         int               `json:"seed"`
+	Context      int               `json:"context"`
 	Modifiers    []AuctionModifier `json:"modifiers,omitempty"`
-	PetSpeciesID int `json:"petSpeciesId,omitempty"`
-	PetBreedID   int `json:"petBreedId,omitempty"`
-	PetLevel     int `json:"petLevel,omitempty"`
-	PetQualityID int `json:"petQualityId,omitempty"`
+	PetSpeciesID int               `json:"petSpeciesId,omitempty"`
+	PetBreedID   int               `json:"petBreedId,omitempty"`
+	PetLevel     int               `json:"petLevel,omitempty"`
+	PetQualityID int               `json:"petQualityId,omitempty"`
 	BonusLists   []AuctionBonus
 }
 
