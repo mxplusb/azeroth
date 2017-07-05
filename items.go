@@ -1,13 +1,18 @@
-package aszeroth
+package azeroth
+
+import (
+	"github.com/jinzhu/gorm"
+)
 
 // ITEM_ENDPOINT is the base endpoint for all WoW items. When called, it accepts an integer.
 // ITEMSET_ENDPOINT is the base endpoint for all WoW item sets. When called, it accepts an integer.
 const (
-	ITEM_ENDPOINT    = "/wow/item/%d"
-	ITEMSET_ENDPOINT = "/wow/item/set/%d"
+	ITEM_ENDPOINT    = "/wow/item/"
+	ITEMSET_ENDPOINT = "/wow/item/set/"
 )
 
 type Item struct {
+	gorm.Model
 	ID          int           `json:"id"`
 	Description string        `json:"description"`
 	Name        string        `json:"name"`

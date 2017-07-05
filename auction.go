@@ -2,7 +2,7 @@ package azeroth
 
 // AUCTION_ENDPOINT is the base Auction House endpoint. When calling, it requires the realm slug.
 const (
-	AUCTION_ENDPOINT = "/wow/auction/data/%s"
+	AUCTION_ENDPOINT = "/wow/auction/data/"
 )
 
 // AuctionAPI is the parent type for the Auction House API. When calling, the Auction House API returns the
